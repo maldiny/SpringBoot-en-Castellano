@@ -7,11 +7,23 @@ Para iniciar una aplicación SB (SpringBoot a partir de ahora) bastará con ejec
 ## Índice
   1. introducción
   2. instalación
-  3. creación de una aplicación base
+  3. creación de una aplicación base y ejecución (19)
   4. starters
-  5. configuración mediante clases y autoconfiguración (15+16)
-  6. beans e inyección de depencias
-  7. otros
+  5. configuración mediante clases y autoconfiguración (15+16+24.7+44)
+  6. beans e inyección de depencias (17)
+  7. YAML como fichero de configuración
+  8. CORS support
+  9. seguridad
+  10. configuración del contenedor embebido
+  11. acceso a bases de datos SQL y NoSQL
+  12. testeo de aplicaciones
+  13. websockets
+  14. webservices
+  15. springboot actuator
+  16. despliegue en cloud (cloud foundry, heroku, openshift, amazon y Google Cloud)
+  17. springboot maven plugin
+  18. FAQs
+  19. referencias
 
 ## Introducción
 
