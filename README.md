@@ -79,6 +79,8 @@ Para iniciar la construcción de nuestra primera aplicación SB se plantean vari
 
 - **STS plugin:** A través del propio ide STS que se puede descargar desde el siguiente [enlace](https://spring.io/tools/sts/all) se facilita de la posibilidad al usuario para crear un proyecto base. Para ello únicamente es necesario seguir los siguientes pasos:
 
+<p align="center"><img src="Imagenes//[Maldiny]_STS_Spring_Starter_Project.png"></p>
+
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
 Un Step podrá ser tan simple o complejo o de la tipología que el desarrollador determine oportuno.
