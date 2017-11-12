@@ -81,6 +81,18 @@ Para iniciar la construcción de nuestra primera aplicación SB se plantean vari
 
 <p align="center"><img src="Imagenes//[Maldiny]_STS_Spring_Starter_Project.png"></p>
 
+Al igual que en la versión Online, únicamente es necesario completar los campos que se solicitan tal y como se ve a continuación:
+
+<p align="center"><img src="Imagenes//[Maldiny]_STS_Spring_Starter_Project_data.png"></p>
+
+Como se puede observar en el generador, el plugin integrado en el IDE finalmente realiza una invocación al endpoint online para generar el proyecto y descomprimirlo en el workspace que se este utilizando por lo que es fácilmente integrable en cualquier aplicación Ad hoc.
+
+<p align="center"><img src="Imagenes//[Maldiny]_STS_Spring_Starter_Project_endpoint.png"></p>
+
+Una vez generado, se descargarán todas las dependencias maven necesarias para desplegar un proyecto SB. En caso de ser la primera ocasión en la que se realiza este paso puede demorarse varios minutos.
+
+<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo.png"></p>
+
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
 Un Step podrá ser tan simple o complejo o de la tipología que el desarrollador determine oportuno.
