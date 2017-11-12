@@ -133,7 +133,7 @@ Si arrancamos de nuevo la aplicación veremos cómo aparece en los logs la frase
 
 <p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_logs.png"></p>
 
-El código de este primer ejemplo de hola mundo se encuentra en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootHolaMundo).
+El código de este primer ejemplo de hola mundo se encuentra en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootHolaMundo){:target="_blank"}.
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
