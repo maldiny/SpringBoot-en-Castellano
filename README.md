@@ -93,6 +93,43 @@ Una vez generado, se descargarán todas las dependencias maven necesarias para d
 
 <p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo.png"></p>
 
+El proyecto hola_mundo esta preparado para poder ejecutarse. Para ello vamos a iniciar revisando las distintas formas que podemos emplear para lanzar el proyecto desde el STS:
+
+1. Botón secundario sobre el proyecto > Run As > Spring Boot App 
+2. En la parte inferior del IDE aparece la pestaña denominada *Boot Dashboard*, en ella aparecerán todos los proyectos de tipo SB que se encuentren importados en nuestro Workspace. Adicionalmente podremos agregar proyectos SB que se encuentren desplegados en la plataforma Cloud Foundry. Para lanzar un proyecto a través del *Boot Dashboard*, simplemente será necesario pulsar botón secundario sobre el proyecto y pulsar en (re)start.
+
+<p align="center"><img src="Imagenes//[Maldiny]_Boot_Dashboard_start.png"></p>
+
+A continuación podemos ver el resultado del arranque de esta primera aplicación:
+
+<p align="center"><img src="Imagenes//[Maldiny]_Start_logs.png"></p>
+
+Al no haber incorporado ningún codigo adicional, la aplicación no realiza operación alguna por lo que se inicia su ejecución y se finaliza tras el arranque. 
+
+Vamos a incluir un bean en la clase *HolamundoApplication.java* que incluya la siguiente definición (más adelante veremos este tema):
+
+```cmd
+@SpringBootApplication
+public class HolaMundoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(HolaMundoApplication.class, args);
+	}
+	
+	@Bean 
+	public String saluda(){
+		System.out.println("Hola mundo...");
+		return "";
+	}
+	
+}
+```
+
+Si arrancamos de nuevo la aplicación veremos cómo aparece en los logs la frase que hemos introducido "Hola mundo...".
+
+<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_Log.png"></p>
+
+
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
 Un Step podrá ser tan simple o complejo o de la tipología que el desarrollador determine oportuno.
