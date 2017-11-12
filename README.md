@@ -1,4 +1,4 @@
-# SpringBoot-en-Castellano
+# Springboot-en-Castellano
 
 SpringBoot es un framework de Spring que permite crear aplicaciones standalone, sin necesidad de un servidor de aplicaciones externo a ella.
 
@@ -7,7 +7,7 @@ Para iniciar una aplicación SB (SpringBoot a partir de ahora) bastará con ejec
 ## Índice
   1. introducción
   2. instalación
-  3. creación de una aplicación base y ejecución (19)
+  3. creación de una aplicación base y ejecución
   4. starters
   5. configuración mediante clases y autoconfiguración (15+16+24.7+44)
   6. beans e inyección de depencias (17)
@@ -42,18 +42,34 @@ Los servidores de aplicaciones enbebidos que permite ejecutar SB por defecto son
 
 **[Ir al índice](#Índice)**
 
-## Instala
-Spring Batch nos propone un diseño como el que se puede apreciar en la siguiente figura para construir nuestros procesos.
+## Instalación
+SB es compatible con Maven 3.2 o superior. Se puede consultar los pasos para realizar su instalación en la siguiente dirección [http://maven.apache.org/](http://maven.apache.org/).
 
-<p align="center"><img src="https://github.com/maldiny/Spring-Batch-en-Castellano/blob/737de763d536164092e0e8aeb19558a89a47f5ea/Imagenes/%5BMaldiny%5D_Elementos_de_un_batch.png"></p>
+**SpringBoot CLI**
 
-* **JobRepository**: componente encargado de la persistencia de metadatos relativos a los procesos tales como procesos en curso o estados de las ejecuciones.
-* **JobLauncher:** componente encargado de lanzar los procesos suministrando los parámetros de entrada deseados.
-* **Job:** El Job es la representación del proceso. Un proceso, a su vez, es un contenedor de pasos (steps).
-* **Step:** Un step (paso) es un elemento independiente dentro de un Job (un proceso) que representa una de las fases de las que está compuesto dicho proceso. Un proceso (Job) debe tener, al menos, un step.
-* **ItemReader, ItemWriter, ItemProcesor:** componentes opcionales para el tratamiento de datos (lectura, escritura y procesado).
+SB CLi es una herramienta de comandos que se puede utilizar para realizar prototipado con Spring. Adicionalmente permitirá ejecutar scripts de groovy.
 
-### Job (JobInstance, JobParameters, JobExecution)
+Es una herramienta opcional y para seguir los ejemplos y guias descritas a continuación no es necesario instalarlo.
+
+Para validar si se encuentra instalado basta con ejecutar el siguiente comando en una consola:
+
+```cmd
+spring -version
+Spring Boot v1.5.8.RELEASE
+```
+
+Se puede descargar e instalar manualmente a través del siguiente enlace:
+
+[spring-boot-cli-1.5.8.RELEASE-bin.zip](https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/1.5.8.RELEASE/spring-boot-cli-1.5.8.RELEASE-bin.zip)
+
+Para sistemas operativos OSX (MAC) se podrá iniciar su instalación mediante los siguientes comandos:
+
+```cmd
+brew tap pivotal/tap
+brew install springboot
+```
+
+## Creación de una aplicación base y ejecución
 
 **Job** 
 
