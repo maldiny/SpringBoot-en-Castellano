@@ -6,11 +6,11 @@ Para iniciar una aplicación SB (SpringBoot a partir de ahora) bastará con ejec
 
 ## Índice
   1. introducción
-  2. elementos de un batch
-  3. configuración a nivel de job
-  4. configuración a nivel de step
-  5. itemReaders, itemWriters y itemProcesors
-  6. escalado y paralelización
+  2. instalación
+  3. creación de una aplicación base
+  4. starters
+  5. configuración mediante clases y autoconfiguración (15+16)
+  6. beans e inyección de depencias
   7. otros
 
 ## Introducción
@@ -30,7 +30,7 @@ Los servidores de aplicaciones enbebidos que permite ejecutar SB por defecto son
 
 **[Ir al índice](#Índice)**
 
-## Elementos de un batch
+## Instala
 Spring Batch nos propone un diseño como el que se puede apreciar en la siguiente figura para construir nuestros procesos.
 
 <p align="center"><img src="https://github.com/maldiny/Spring-Batch-en-Castellano/blob/737de763d536164092e0e8aeb19558a89a47f5ea/Imagenes/%5BMaldiny%5D_Elementos_de_un_batch.png"></p>
