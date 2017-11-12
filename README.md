@@ -131,7 +131,7 @@ public class HolaMundoApplication {
 
 Si arrancamos de nuevo la aplicación veremos cómo aparece en los logs la frase que hemos introducido "Hola mundo...".
 
-<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_Log.png"></p>
+<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_logs.png"></p>
 
 El código de este primer ejemplo de hola mundo se encuentra en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootHolaMundo).
 
