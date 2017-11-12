@@ -75,7 +75,7 @@ Para iniciar la construcción de nuestra primera aplicación SB se plantean vari
 
 - Online Spring Initializr: A través del portal https://start.spring.io/ se puede iniciar la construcción de una aplicación introduciendo el nombre del proyecto, sus coordenadas maven y realizando la selección de las dependencias que conocemos de antemano que va a necesitar nuestro proyecto. Estas dependencias únicamente nos las agregará al fichero pom.xml por lo que en caso de no agregarlas en la definición del proyecto podremos agregarlas manualmente con gran facilidad. Para nuestro primero proyecto el formulario quedará del siguiente modo:
 
-![]({{site.baseurl}}/https://raw.githubusercontent.com/maldiny/SpringBoot-en-Castellano/master/Imagenes/%5BMaldiny%5D_Spring_Initializr.png)
+![](https://raw.githubusercontent.com/maldiny/SpringBoot-en-Castellano/master/Imagenes/%5BMaldiny%5D_Spring_Initializr.png)
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
