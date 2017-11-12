@@ -77,6 +77,10 @@ Para iniciar la construcción de nuestra primera aplicación SB se plantean vari
 
 <p align="center"><img src="Imagenes//[Maldiny]_Spring_Initializr.png"></p>
 
+Tras completar los datos se podrá descargar el proyecto generado en formato .zip.
+
+<p align="center"><img src="Imagenes//[Maldiny]_Spring_Initializr_zip.png"></p>
+
 - **STS plugin:** A través del propio ide STS que se puede descargar desde el siguiente [enlace](https://spring.io/tools/sts/all) se facilita de la posibilidad al usuario para crear un proyecto base. Para ello únicamente es necesario seguir los siguientes pasos:
 
 <p align="center"><img src="Imagenes//[Maldiny]_STS_Spring_Starter_Project.png"></p>
@@ -127,8 +131,9 @@ public class HolaMundoApplication {
 
 Si arrancamos de nuevo la aplicación veremos cómo aparece en los logs la frase que hemos introducido "Hola mundo...".
 
-<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_Log.png"></p>
+<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_logs.png"></p>
 
+El código de este primer ejemplo de hola mundo se encuentra en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootHolaMundo).
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
