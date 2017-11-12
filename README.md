@@ -112,7 +112,7 @@ Al no haber incorporado ningún codigo adicional, la aplicación no realiza oper
 
 Vamos a incluir un bean en la clase *HolamundoApplication.java* que incluya la siguiente definición (más adelante veremos este tema):
 
-```cmd
+```java
 @SpringBootApplication
 public class HolaMundoApplication {
 
@@ -135,6 +135,20 @@ Si arrancamos de nuevo la aplicación veremos cómo aparece en los logs la frase
 
 El código de este primer ejemplo de hola mundo se encuentra en el siguiente 
 [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootHolaMundo).
+
+Por otro lado, también es posible ejecutar la aplicación desde fuera del IDE por ejemplo desde línea de comando. Para ello es necesario realizar la compilación y empaquetado del proyecto generando el fichero *.jar. Para realizar esta acción basta con seleccionar con botón secundario el proyecto y pulsar sobre *Run As > Maven install*, se iniciará la descarga de las dependencias necesarias y finalmente generará el fichero *SpringBootHolaMundo-0.0.1-SNAPSHOT.jar* en la carpeta target del proyecto como se ve en la siguiente imagen:
+
+<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_jar.png"></p>
+
+Una vez empaquetado el proyecto y generado los binarios se puede realizar su ejecución accediendo al directorio "target" del proyecto mediante un terminal (cmd) y ejecutando el siguiente comando:
+
+```cmd
+java -jar SpringBootHolaMundo-0.0.1-SNAPSHOT.jar
+```
+
+Se puede ver a continuación el resultado obtenido:
+
+<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_jar_ejecucion.png"></p>
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
