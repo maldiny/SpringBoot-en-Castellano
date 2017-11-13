@@ -201,9 +201,36 @@ Para poder excluir alguna configuración realizada automáticamente bastará con
 
 En cualquier fichero de configuración del proyecto se podrá incluir configuración específica que sobreescriba la configuración definida automáticamente en el proyecto.
 
-### beans e inyección de depencias
+## beans e inyección de depencias
 
+Para realizar la definición de los objetos y su inyección de dependencias podrá emplearse la anotación **@ComponentScan** como anotación de alguno de los ficheros de configuración dónde se indicará el path dónde se encuentran de forma recursiva los objetos a instanciar mediante anotaciones del tipo @Component, @Service, @Repository, @Controller, ...
 
+```java
+@Configuration
+@ComponentScan("com.maldiny")
+@ImportXml("classpath:com/maldiny/datasource-config.xml")
+public class Config {
+}
+```
+
+## YAML como fichero de configuración
+
+YAML es un formato de especificar información de configuración de forma jerárquica. La librería SnakeYAML permitirá incorporar este tipo de configuración por defecto al configurar el proyecto mediante el **spring-boot-starter**.
+
+```yaml
+com: 
+	maldiny:
+		moneda: euro
+		precio: 10
+	env:
+		url: local
+```
+
+```yaml
+com.maldiny.moneda=euro 
+com.maldiny.precio=10
+com.env.url=local
+```
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
