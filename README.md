@@ -12,7 +12,7 @@ Para iniciar una aplicación SB (SpringBoot a partir de ahora) bastará con ejec
   5. configuración mediante clases y autoconfiguración
   6. beans e inyección de depencias
   7. YAML como fichero de configuración
-  8. CORS support
+  8. CORS configuración
   9. seguridad
   10. configuración del contenedor embebido
   11. acceso a bases de datos SQL y NoSQL
@@ -231,6 +231,10 @@ com.maldiny.moneda=euro
 com.maldiny.precio=10
 com.env.url=local
 ```
+
+## CORS configuración
+
+
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
