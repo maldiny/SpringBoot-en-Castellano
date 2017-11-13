@@ -9,8 +9,8 @@ Para iniciar una aplicación SB (SpringBoot a partir de ahora) bastará con ejec
   2. instalación
   3. creación de una aplicación base y ejecución
   4. starters
-  5. configuración mediante clases y autoconfiguración (15+16+24.7+44)
-  6. beans e inyección de depencias (17)
+  5. configuración mediante clases y autoconfiguración
+  6. beans e inyección de depencias
   7. YAML como fichero de configuración
   8. CORS support
   9. seguridad
@@ -178,6 +178,32 @@ A continuación vamos a nombrar y detallar algunos de los starters más signific
 * **spring-boot-starter-actuator**: Starter de SB que provee de capacidades de monitorización y gestión de las aplicaciones SB.
 
 Otros starters interesantes a tener en cuenta son *spring-boot-starter-jetty,spring-boot-starter-log4j2, spring-boot-starter-logging, spring-boot-starter-tomcat, spring-boot-starter-undertow, spring-boot-starter-security*.
+
+## configuración mediante clases y autoconfiguración
+
+### importar xml de configuración
+
+A pesar de haber modificado la forma en la que se define la configuración para SB, es posible seguir definiendo los beans y ciertos aspectos de configuración mediante ficheros XML e importando dicha configuración mediante la anotación 
+**@ImportResource**.
+
+### auto-configuración
+
+SB configura automáticamente la aplicación en función de las dependencias agregadas al proyecto. Para activar esta característica será necesario agregar la anotación **@EnableAutoConfiguration** o **@SpringBootApplication** a alguna de las clases de configuración.
+
+Para poder revisar la configuración incluida automática en la aplicación se puede incluir en los logs de arranque de la aplicación el parámetro **--debug**.
+
+Para poder excluir alguna configuración realizada automáticamente bastará con incluir la siguiente definición:
+
+```java
+@Configuration @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) public class MyConfiguration {
+}
+```
+
+En cualquier fichero de configuración del proyecto se podrá incluir configuración específica que sobreescriba la configuración definida automáticamente en el proyecto.
+
+### beans e inyección de depencias
+
+
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
