@@ -175,6 +175,9 @@ A continuación vamos a nombrar y detallar algunos de los starters más signific
 * **spring-boot-starter-web**: Starter de SB que permite realizar el desarrollo web incluyendo el desarrollo de servicios RESTful y aplicaciones usando Spring MVC. Usa Apache Tomcat como contenedor por defecto.
 * **spring-boot-starter-web-services**: Starter de SB para usar Spring Web Services.
 * **spring-boot-starter-websocket**: Starter de SB que permite construir aplicaciones que establezcan comunicaciones basadas en el framework de Spring para WebShockets.
+* **spring-boot-starter-actuator**: Starter de SB que provee de capacidades de monitorización y gestión de las aplicaciones SB.
+
+Otros starters interesantes a tener en cuenta son *spring-boot-starter-jetty,spring-boot-starter-log4j2, spring-boot-starter-logging, spring-boot-starter-tomcat, spring-boot-starter-undertow, spring-boot-starter-security*.
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
