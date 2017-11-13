@@ -150,6 +150,32 @@ Se puede ver a continuación el resultado obtenido:
 
 <p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_jar_ejecucion.png"></p>
 
+## starters
+
+Los starters de SB básicamente son configuraciones o artefactos maven que aglutinan una serie de dependencias previamente validadas que facilitan la configuración de ciertas características de una aplicación. 
+
+El primero de estos starters de los que se hará uso al crear una aplicación SB es el *spring-boot-starter-1.5.8.RELEASE". Si accedemos al contenido del jar veremos que estará compuesto únicamente por la definición de un pom.xml que incluye una serie de artefactos maven como dependencias, concretamente, los artefactos maven que consituyen el core de SB:
+
+<p align="center"><img src="Imagenes//[Maldiny]_Spring_Boot_Starter_Pom.png"></p>
+
+A continuación vamos a nombrar y detallar algunos de los starters más significativos:
+
+* **spring-boot-starter:** Core de SB que incluye el soporte a la configuración, sistema de logging y soporte para el uso de YAML de configuración.
+* **spring-boot-starter-aop**: Starter de SB que permite trabajar con Spring AOP y AspectJ para el desarrollo de códito empleando aspectos.
+* **spring-boot-starter-batch**: Starter que permitirá realizar desarrollos mediante el framework de Spring Batch para el procesado de lotes.
+* **spring-boot-starter-cache**: Starter para utilizar los frameworks de Spring para el soporte al cacheo de información.
+* **spring-boot-starter-cloud-connectors**: Starter de SB que incluye Spring Cloud Connectors que simplifican la conectividad con los servicios de plataformas cloud como Cloud Foundry y Heroku.
+* **spring-boot-starter-data-jpa**: Starter de SB para utilizar Spring Data JPA con Hibernate.
+* **spring-boot-starter-mongodb**: Starter de SB que facilita utilizar MongoDB como sistema de persistencia NoSQL y Spring Data MongoDB.
+* **spring-boot-starter-data-rest**: Starter de SB que facilita la creación y exposición de repositorios configurados con Spring Data sobre el protocolo REST mediante el uso de Spring Data REST.
+* **spring-boot-starter-jdbc**: Starter de SB que permite establecer un pool de conexiones JDBC mediante el uso de Tomcat JDBC.
+* **spring-boot-starter-jersey**: Alternativa a spring-boot-starter-web que permite construir aplicaciones RESTful usando JAX-RS y Jersey.
+* **spring-boot-starter-mail**: Starter de SB que facilita el envio de emails mediante el api de Java Mail y el framework de Spring.
+* **spring-boot-starter-test**: Starter de SB que facilita un framework y las librerías necesarias incluyendo JUnit, Hamcrest y Mockito para testear las aplicaciones SB.
+* **spring-boot-starter-web**: Starter de SB que permite realizar el desarrollo web incluyendo el desarrollo de servicios RESTful y aplicaciones usando Spring MVC. Usa Apache Tomcat como contenedor por defecto.
+* **spring-boot-starter-web-services**: Starter de SB para usar Spring Web Services.
+* **spring-boot-starter-websocket**: Starter de SB que permite construir aplicaciones que establezcan comunicaciones basadas en el framework de Spring para WebShockets.
+
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
 Un Step podrá ser tan simple o complejo o de la tipología que el desarrollador determine oportuno.
