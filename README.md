@@ -274,8 +274,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 }
 ```
 
-Se puede encontrar un ejemplo completo de configuración del CORS en SB en el siguiente enlace:
-https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootCORS
+Se puede encontrar un ejemplo completo de configuración del CORS en SB en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootCORS).
 
 ## consejos
 
