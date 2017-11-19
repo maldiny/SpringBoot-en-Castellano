@@ -22,8 +22,9 @@ Para iniciar una aplicación SB (SpringBoot a partir de ahora) bastará con ejec
   15. springboot actuator
   16. despliegue en cloud (cloud foundry, heroku, openshift, amazon y Google Cloud)
   17. springboot maven plugin
-  18. FAQs
-  19. referencias
+  18. consejos
+  19. FAQs
+  20. referencias
 
 ## Introducción
 
@@ -234,7 +235,63 @@ com.env.url=local
 
 ## CORS configuración
 
+En cualquier navegador moderno, el "Cross-Origin Resource Sharing" o más conocido como *CORS* es una especificación que se inició con la introducción del HTML5 y los clientes Javascript que realizan consultas via REST a APIs que permite o deniega el acceso a estos servicios con el fin de introducir una capa adicional de seguridad a las APIs.
 
+En muchos casos, el host que sirve los ficheros estáticos (index.html por ejemplo) no es el mismo host que sirve la información mediante APIs. 
+
+En este caso, SB provee de distintas opciones para abilitar el acceso a los servicios implementados en la aplicación.
+
+- En primer lugar, se puede habilitar el acceso CORS a nivel de método mediante la anotación *@CrossOrigin* del siguiente modo:
+
+```java
+	@CrossOrigin
+	@RequestMapping(value="/cross_origin_enabled", method = RequestMethod.GET)
+    public String enabled(ModelMap model) {
+        return "enabled";
+    }
+```
+
+- En segundo lugar, en caso de desear habilitar el CORS para todos los servicios de un mismo controlador es posible incluir esta anotación a nivel de clase del siguiente modo:
+
+```java
+	@RestController
+  	@CrossOrigin(origins = "http://example.com", maxAge = 3600)
+  	public class ServiceController {...}
+```
+
+- En último lugar, es posible realizar la configuración CORS para todos los servicios de una aplicación incluyendo la siguiente configuración:
+
+```java
+    @Configuration
+    @EnableWebMvc
+    public class WebConfig extends WebMvcConfigurerAdapter {
+
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**");
+        }
+    }
+```
+
+Se puede encontrar un ejemplo completo de configuración del CORS en SB en el siguiente enlace:
+https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootCORS
+
+## consejos
+
+En el siguiente apartado se han recopilado distintos consejos obtenidos con la experiencia a la hora de realizar desarrollos mediante el framework de SB:
+
+### refresco automático de la aplicación durante la codificación
+
+Una de las características más deseadas de los programadores a la hora de implementar sus desarrollos es el poder compilar la aplicación automáticamente sin necesidad de estar deteniendo y redesplegando en el servidor los cambios realizados, principalmente si se tratan de cambios sencillos en algún fichero de estáticos.
+
+En los proyectos SB es posible aplicar este tipo de configuración de refresco automático. Para ello únicamente es necesario incluir en el fichero *pom.xml* la dependencia a *spring-boot-devtools* del siguiente modo:
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-devtools</artifactId>
+</dependency>
+```
 
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
