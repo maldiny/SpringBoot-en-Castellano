@@ -196,8 +196,9 @@ Para poder revisar la configuración incluida automática en la aplicación se p
 Para poder excluir alguna configuración realizada automáticamente bastará con incluir la siguiente definición:
 
 ```java
-@Configuration @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) public class MyConfiguration {
-}
+@Configuration 
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) 
+public class MyConfiguration {...}
 ```
 
 En cualquier fichero de configuración del proyecto se podrá incluir configuración específica que sobreescriba la configuración definida automáticamente en el proyecto.
@@ -244,33 +245,33 @@ En este caso, SB provee de distintas opciones para abilitar el acceso a los serv
 - En primer lugar, se puede habilitar el acceso CORS a nivel de método mediante la anotación *@CrossOrigin* del siguiente modo:
 
 ```java
-	@CrossOrigin
-	@RequestMapping(value="/cross_origin_enabled", method = RequestMethod.GET)
-    public String enabled(ModelMap model) {
-        return "enabled";
-    }
+@CrossOrigin
+@RequestMapping(value="/cross_origin_enabled", method = RequestMethod.GET)
+public String enabled(ModelMap model) {
+  return "enabled";
+}
 ```
 
 - En segundo lugar, en caso de desear habilitar el CORS para todos los servicios de un mismo controlador es posible incluir esta anotación a nivel de clase del siguiente modo:
 
 ```java
-	@RestController
-  	@CrossOrigin(origins = "http://example.com", maxAge = 3600)
-  	public class ServiceController {...}
+@RestController
+@CrossOrigin(origins = "http://example.com", maxAge = 3600)
+public class ServiceController {...}
 ```
 
 - En último lugar, es posible realizar la configuración CORS para todos los servicios de una aplicación incluyendo la siguiente configuración:
 
 ```java
-    @Configuration
-    @EnableWebMvc
-    public class WebConfig extends WebMvcConfigurerAdapter {
+@Configuration
+@EnableWebMvc
+public class WebConfig extends WebMvcConfigurerAdapter {
 
-        @Override
-        public void addCorsMappings(CorsRegistry registry) {
-            registry.addMapping("/**");
-        }
-    }
+  @Override
+  public void addCorsMappings(CorsRegistry registry) {
+    registry.addMapping("/**");
+  }
+}
 ```
 
 Se puede encontrar un ejemplo completo de configuración del CORS en SB en el siguiente enlace:
