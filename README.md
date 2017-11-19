@@ -833,5 +833,3 @@ Esta consola **permite** realizar las siguientes operativas:
 * [Ejemplos de Spring Batch](https://github.com/spring-projects/spring-batch/tree/master/spring-batch-samples)
 
 **[Ir al índice](#Índice)**
-
-
