@@ -1,0 +1,57 @@
+<html>
+
+<head>
+<title>Maldiny - Configuracion del COORS en SB</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+	<script type="text/javascript" language="javascript">
+		function send(url,id_result) {
+			$.ajax({
+				url : url
+			}).then(function(data) {
+				$('#' + id_result).show();
+				console.log(data);
+			});
+		}
+	</script>
+	<div class="container">
+		<div class="page-header">
+			<h1>Maldiny - Configuracion del COORS en SB</h1>
+		</div>
+		<p>Bienvenido!!</p>
+
+		<p>
+			Pulsa botón secundario sobre la web y selecciona inspeccionar. 
+		</p>
+		
+		<p><img src="images/inspeccionar.png" /></p>
+		
+		<p>
+			Tras desplegar el menú de desarrollador del navegador, pulsa sobre la opción "Console".
+		</p>
+
+		<p><img src="images/console.png" /></p>
+		
+		<p>
+			Para lanzar una petición REST a uno de los servicios existentes en la aplicación SpringBoot pulsa el siguiente botón:<br/><br/>
+			<button type="submit" onclick="send('http://localhost:8080/cross_origin_disabled','disabled_span')">CORS disabled</button>&nbsp;&nbsp;<span id="disabled_span" style="display:none">SEND KO</<span>
+		</p>
+		
+		</br>
+		
+		<p>
+			Se puede ver en la consola del navegador que aparece el error mencionado:</br></br>
+			<b>"Failed to load http://localhost:8080/hello: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'null' is therefore not allowed access."</b>
+		</p>
+		
+		<p>
+			Se puede realizar una segunda petición al servicio que tiene habilitado el acceso:<br/><br/>
+			<button type="submit" onclick="send('http://localhost:8080/cross_origin_enabled','enabled_span')">CORS enabled</button>&nbsp;&nbsp;<span id="enabled_span" style="display:none">SEND OK</<span>
+		</p>
+		
+	</div>
+</body>
+</html>
