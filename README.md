@@ -293,6 +293,33 @@ En los proyectos SB es posible aplicar este tipo de configuración de refresco a
 </dependency>
 ```
 
+### despliegue de bootstrap y jquery
+
+Para poder desplegar las librerías de presentación para integrar aplicaciones basadas en bootstrap y jquery será necesario incluir las siguientes dependencias en el fichero *pom.xml*:
+
+```xml
+<!-- Agregar los ficheros estáticos de bootstrap en el directorio webjars/bootstrap/... -->
+<dependency>
+  <groupId>org.webjars</groupId>
+  <artifactId>bootstrap</artifactId>
+  <version>3.3.6</version>
+</dependency>
+
+<!-- Agregar los ficheros estáticos de jquery el directorio webjars/jquery/... -->
+<dependency>
+  <groupId>org.webjars</groupId>
+  <artifactId>jquery</artifactId>
+  <version>1.9.1</version>
+</dependency>
+```
+
+Para hacer uso de cualquiera de ellas en una jsp podrá realizarse del siguiente modo:
+
+```html
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+````
+
 ### Step (StepExecution)
 **Step** encapsula cada una de las fases o **pasos de un batch**. De este modo un batch está compuesto por uno o más Steps.
 Un Step podrá ser tan simple o complejo o de la tipología que el desarrollador determine oportuno.
