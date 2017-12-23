@@ -316,6 +316,54 @@ Se puede encontrar un ejemplo completo de configuración del CORS en SB en el si
 
 ## springboot actuator
 
+SB Actuator es un módulo que permite realizar monitorización y gestión del estado de las aplicaciones en tiempo de ejecución.
+
+Para poder activar esta feature en nuestras aplicaciones SB bastará con agregar el siguiente módulo:
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+El SB Actuator habilitará los siguientes endpoints de gestión en nuestras aplicaciones:
+
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+* **/actuator**: 
+
+Para evitar tener que recordar todos estos enpoints, se puede agregar la dependencia de SB HATEOAS en el fichero pom.xml:
+
+```xml
+<dependency>
+  <groupId>org.springframework.hateoas</groupId>
+  <artifactId>spring-hateoas</artifactId>
+</dependency>
+````
+
+De este modo al acceder al endpoint http://localhost:8080/actuator podremos obtener el listado de todos los endpoints disponibles de una forma fácil y rápida:
+
+[TODO: Captura de pantalla]
+
+Con esta configuración es posible que se encuentren deshabilitados gran cantidad de las features que proporciona SB Actuator hasta que se configure algún mecanismo de autenticación. En caso de no ser necesario se puede configurar la aplicación introduciendo la siguiente configuración en el fichero application.properties:
+
+```properties
+management.security.enabled=False
+```
+	
+Se puede encontrar un ejemplo completo de configuración de SB Actuator en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootActuator).
+    
+
 **[Ir al índice](#Índice)**
 
 ## despliegue en cloud (cloud foundry, heroku, openshift, amazon y Google Cloud)
