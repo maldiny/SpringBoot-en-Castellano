@@ -329,18 +329,25 @@ Para poder activar esta feature en nuestras aplicaciones SB bastará con agregar
 
 El SB Actuator habilitará los siguientes endpoints de gestión en nuestras aplicaciones:
 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
-* **/actuator**: 
+* **/actuator**: Muestra el listado de endpoints. Requiere Spring HATEOAS.
+* **/auditevents**: Expone información sobre eventos.
+* **/autoconfig**: Muestra toda la configuración de la aplicación.
+* **/beans**: Muestra la list completa de beans.
+* **/configprops**: Muestra la lista de @ConfigurationProperties.
+* **/dump**: Realiza un dump de los hilos y memoria de la aplicación.
+* **/env**: Muestra la configuración de entorno - ConfigurableEnvironment.
+* **/flyway**: Muestra cualquier migración de base de datos aplicada.
+* **/health**: Muestra la información de salud de la aplicación.
+* **/info**: Muestra información sobre la aplicación.
+* **/loggers**: Muestra la configuración de los loggers configurados.
+* **/metrics**: Muestra métricas de la aplicación.
+* **/mappings**: Muestra el listado de paths configurados @RequestMapping.
+* **/shutdown**: Permite realizar la parada de la aplicación. 
+* **/trace**: Muestra las peticiones HTTP recibidas.
+* **/docs**: Muestra documentación sobre las peticiones. Requiere SB actuator docs.
+* **/heapdump**: Realiza la descarga en formato GZip del head dump de memoria. 
+* **/jolokia**: Expone los beans JMX a través de HTTP. Requiere Jolokia.
+* **/logfile**: Muestra el contenido del fichero de log en caso de que se haya configurado las propiedades logging.file o logging.path. 
 
 Para evitar tener que recordar todos estos enpoints, se puede agregar la dependencia de SB HATEOAS en el fichero pom.xml:
 
