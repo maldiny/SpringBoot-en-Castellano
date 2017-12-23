@@ -324,6 +324,44 @@ Se puede encontrar un ejemplo completo de configuración del CORS en SB en el si
 
 ## springboot maven plugin
 
+El plugin de maven para SB se denomina **spring-boot-maven-plugin**. Para hacer uso de él en un proyecto, basta con importarlo en el pom.xml del siguiente modo:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"> <modelVersion>4.0.0</modelVersion>
+<!-- ... -->
+    <build>
+        <plugins>
+<plugin>
+<groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> <version>1.5.8.RELEASE</version>
+<executions>
+                    <execution>
+                        <goals>
+<goal>repackage</goal> </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
+Este plugin permitirá realizar el empaquetado del proyecto en un JAR o WAR ejecutable que se generará en la carpeta target del proyecto.
+
+Se generará un JAR o bien un WAR en función del tipo de empaquetado que se especifique en el propio fichero pom.xml en el apartado **packaging**:
+
+```xml
+<!-- ... -->
+<packaging>jar</packaging>
+<!-- ... -->
+```
+
+Para forzar el empaquetado desde la consola de comandos se ejecutará la siguiente sentencia:
+
+```cmd
+mvn package
+```
+
 **[Ir al índice](#Índice)**
 
 ## consejos
