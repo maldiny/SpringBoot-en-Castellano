@@ -334,6 +334,514 @@ El SB Actuator habilitará los siguientes endpoints de gestión en nuestras apli
 * **/autoconfig**: Muestra toda la configuración de la aplicación.
 * **/beans**: Muestra la list completa de beans.
 * **/configprops**: Muestra la lista de @ConfigurationProperties.
+
+```python
+{
+"endpoints-org.springframework.boot.actuate.endpoint.EndpointProperties": {
+"prefix": "endpoints",
+"properties": {
+"enabled": true,
+"sensitive": null
+}
+},
+"management.info-org.springframework.boot.actuate.autoconfigure.InfoContributorProperties": {
+"prefix": "management.info",
+"properties": {
+"git": {
+"mode": "SIMPLE"
+}
+}
+},
+"metricsEndpoint": {
+"prefix": "endpoints.metrics",
+"properties": {
+"id": "metrics",
+"sensitive": true,
+"enabled": true
+}
+},
+"spring.jackson-org.springframework.boot.autoconfigure.jackson.JacksonProperties": {
+"prefix": "spring.jackson",
+"properties": {
+"serialization": {},
+"propertyNamingStrategy": null,
+"defaultPropertyInclusion": null,
+"parser": {},
+"dateFormat": null,
+"deserialization": {},
+"generator": {},
+"timeZone": null,
+"mapper": {},
+"locale": null,
+"jodaDateTimeFormat": null
+}
+},
+"heapdumpMvcEndpoint": {
+"prefix": "endpoints.heapdump",
+"properties": {
+"path": "/heapdump",
+"sensitive": true,
+"enabled": true
+}
+},
+"endpoints.cors-org.springframework.boot.actuate.autoconfigure.EndpointCorsProperties": {
+"prefix": "endpoints.cors",
+"properties": {
+"allowedOrigins": [],
+"maxAge": 1800,
+"exposedHeaders": [],
+"allowedHeaders": [],
+"allowedMethods": [],
+"allowCredentials": null
+}
+},
+"environmentMvcEndpoint": {
+"prefix": "endpoints.env",
+"properties": {
+"path": "/env"
+}
+},
+"environmentEndpoint": {
+"prefix": "endpoints.env",
+"properties": {
+"id": "env",
+"sensitive": true,
+"enabled": true
+}
+},
+"spring.http.multipart-org.springframework.boot.autoconfigure.web.MultipartProperties": {
+"prefix": "spring.http.multipart",
+"properties": {
+"maxRequestSize": "10MB",
+"fileSizeThreshold": "0",
+"location": null,
+"maxFileSize": "1MB",
+"enabled": true,
+"resolveLazily": false
+}
+},
+"spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties": {
+"prefix": "spring.info",
+"properties": {
+"build": {
+"location": {}
+},
+"git": {
+"location": {}
+}
+}
+},
+"auditEventsEndpoint": {
+"prefix": "endpoints.auditevents",
+"properties": {
+"enabled": true
+}
+},
+"traceEndpoint": {
+"prefix": "endpoints.trace",
+"properties": {
+"id": "trace",
+"sensitive": true,
+"enabled": true
+}
+},
+"metricsMvcEndpoint": {
+"prefix": "endpoints.metrics",
+"properties": {
+"path": "/metrics"
+}
+},
+"infoEndpoint": {
+"prefix": "endpoints.info",
+"properties": {
+"id": "info",
+"sensitive": false,
+"enabled": true
+}
+},
+"auditEventMvcEndpoint": {
+"prefix": "endpoints.auditevents",
+"properties": {
+"path": "/auditevents",
+"sensitive": true,
+"enabled": true
+}
+},
+"management.trace-org.springframework.boot.actuate.trace.TraceProperties": {
+"prefix": "management.trace",
+"properties": {
+"include": [
+"REQUEST_HEADERS",
+"ERRORS",
+"TIME_TAKEN",
+"RESPONSE_HEADERS",
+"COOKIES"
+]
+}
+},
+"spring.resources-org.springframework.boot.autoconfigure.web.ResourceProperties": {
+"prefix": "spring.resources",
+"properties": {
+"cachePeriod": 0,
+"addMappings": true,
+"chain": {
+"cache": false,
+"htmlApplicationCache": false,
+"gzipped": false,
+"strategy": {
+"fixed": {
+"enabled": false,
+"paths": [
+"/**"
+],
+"version": null
+},
+"content": {
+"enabled": false,
+"paths": [
+"/**"
+]
+}
+}
+},
+"staticLocations": [
+"/",
+"classpath:/META-INF/resources/",
+"classpath:/resources/",
+"classpath:/static/",
+"classpath:/public/"
+]
+}
+},
+"management.health.status-org.springframework.boot.actuate.autoconfigure.HealthIndicatorProperties": {
+"prefix": "management.health.status",
+"properties": {
+"order": null
+}
+},
+"healthMvcEndpoint": {
+"prefix": "endpoints.health",
+"properties": {
+"path": "/health"
+}
+},
+"serverProperties": {
+"prefix": "server",
+"properties": {
+"contextParameters": {},
+"address": null,
+"maxHttpPostSize": 0,
+"undertow": {
+"maxHttpPostSize": 0,
+"bufferSize": null,
+"buffersPerRegion": null,
+"ioThreads": null,
+"workerThreads": null,
+"directBuffers": null,
+"accesslog": {
+"enabled": null,
+"pattern": "common",
+"prefix": "access_log.",
+"suffix": "log",
+"dir": "/Volumes/MACINTOSH_HD/GitHub/SpringBoot-en-Castellano/Ejemplos/SpringBootActuator/logs",
+"rotate": true
+}
+},
+"tomcat": {
+"accesslog": {
+"enabled": false,
+"pattern": "common",
+"directory": "logs",
+"prefix": "access_log",
+"suffix": ".log",
+"rotate": true,
+"renameOnRotate": false,
+"fileDateFormat": ".yyyy-MM-dd",
+"requestAttributesEnabled": false,
+"buffered": true
+},
+"internalProxies": "10\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|192\\.168\\.\\d{1,3}\\.\\d{1,3}|169\\.254\\.\\d{1,3}\\.\\d{1,3}|127\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|172\\.1[6-9]{1}\\.\\d{1,3}\\.\\d{1,3}|172\\.2[0-9]{1}\\.\\d{1,3}\\.\\d{1,3}|172\\.3[0-1]{1}\\.\\d{1,3}\\.\\d{1,3}",
+"protocolHeader": null,
+"protocolHeaderHttpsValue": "https",
+"portHeader": "X-Forwarded-Port",
+"remoteIpHeader": null,
+"basedir": null,
+"backgroundProcessorDelay": 30,
+"maxThreads": 0,
+"minSpareThreads": 0,
+"maxHttpPostSize": 0,
+"redirectContextRoot": null,
+"uriEncoding": null,
+"maxConnections": 0,
+"acceptCount": 0,
+"additionalTldSkipPatterns": []
+},
+"displayName": "application",
+"session": {
+"timeout": null,
+"trackingModes": null,
+"persistent": true,
+"storeDir": null,
+"cookie": {
+"name": null,
+"domain": null,
+"path": null,
+"comment": null,
+"httpOnly": null,
+"secure": null,
+"maxAge": null
+}
+},
+"contextPath": null,
+"error": {
+"path": "/error",
+"includeStacktrace": "NEVER"
+},
+"ssl": null,
+"serverHeader": null,
+"useForwardHeaders": null,
+"port": null,
+"maxHttpHeaderSize": 0,
+"servletPath": "/",
+"jspServlet": {
+"className": "org.apache.jasper.servlet.JspServlet",
+"initParameters": {
+"development": "true"
+},
+"registered": true
+},
+"jetty": {
+"maxHttpPostSize": 0,
+"acceptors": null,
+"selectors": null
+},
+"connectionTimeout": null
+}
+},
+"spring.metrics.export-org.springframework.boot.actuate.metrics.export.MetricExportProperties": {
+"prefix": "spring.metrics.export",
+"properties": {
+"excludes": null,
+"statsd": {
+"host": null,
+"port": 8125,
+"prefix": null
+},
+"includes": null,
+"triggers": {},
+"enabled": true,
+"redis": {
+"prefix": "spring.metrics.application.fbb7a15141a49069b8d1904f18c84dca",
+"key": "******"
+},
+"aggregate": {
+"prefix": "application.fbb7a15141a49069b8d1904f18c84dca",
+"keyPattern": "k.d"
+}
+}
+},
+"configurationPropertiesReportEndpoint": {
+"prefix": "endpoints.configprops",
+"properties": {
+"id": "configprops",
+"sensitive": true,
+"enabled": true
+}
+},
+"healthEndpoint": {
+"prefix": "endpoints.health",
+"properties": {
+"timeToLive": 1000,
+"id": "health",
+"sensitive": false,
+"enabled": true
+}
+},
+"loggersMvcEndpoint": {
+"prefix": "endpoints.loggers",
+"properties": {
+"path": "/loggers"
+}
+},
+"loggersEndpoint": {
+"prefix": "endpoints.loggers",
+"properties": {
+"id": "loggers",
+"sensitive": true,
+"enabled": true
+}
+},
+"endpoints.metrics.filter-org.springframework.boot.actuate.autoconfigure.MetricFilterProperties": {
+"prefix": "endpoints.metrics.filter",
+"properties": {
+"counterSubmissions": [
+"MERGED"
+],
+"gaugeSubmissions": [
+"MERGED"
+]
+}
+},
+"dumpEndpoint": {
+"prefix": "endpoints.dump",
+"properties": {
+"id": "dump",
+"sensitive": true,
+"enabled": true
+}
+},
+"autoConfigurationReportEndpoint": {
+"prefix": "endpoints.autoconfig",
+"properties": {
+"id": "autoconfig",
+"sensitive": true,
+"enabled": true
+}
+},
+"endpoints.jmx-org.springframework.boot.actuate.autoconfigure.EndpointMBeanExportProperties": {
+"prefix": "endpoints.jmx",
+"properties": {
+"uniqueNames": false,
+"staticNames": {},
+"enabled": true,
+"domain": ""
+}
+},
+"spring.http.encoding-org.springframework.boot.autoconfigure.web.HttpEncodingProperties": {
+"prefix": "spring.http.encoding",
+"properties": {
+"charset": "UTF-8",
+"force": false,
+"mapping": null,
+"forceRequest": false,
+"forceResponse": false
+}
+},
+"shutdownEndpoint": {
+"prefix": "endpoints.shutdown",
+"properties": {
+"id": "shutdown",
+"sensitive": true,
+"enabled": false
+}
+},
+"beansEndpoint": {
+"prefix": "endpoints.beans",
+"properties": {
+"id": "beans",
+"sensitive": true,
+"enabled": true
+}
+},
+"halJsonMvcEndpoint": {
+"prefix": "endpoints.actuator",
+"properties": {
+"path": "/actuator",
+"sensitive": false,
+"enabled": true
+}
+},
+"managementServerProperties": {
+"prefix": "management",
+"properties": {
+"security": {
+"enabled": false,
+"roles": [
+"ACTUATOR"
+],
+"sessions": "STATELESS"
+},
+"address": null,
+"port": null,
+"addApplicationContextHeader": true,
+"contextPath": "",
+"ssl": null
+}
+},
+"requestMappingEndpoint": {
+"prefix": "endpoints.mappings",
+"properties": {
+"id": "mappings",
+"sensitive": true,
+"enabled": true
+}
+},
+"endpoints.health-org.springframework.boot.actuate.autoconfigure.HealthMvcEndpointProperties": {
+"prefix": "endpoints.health",
+"properties": {
+"mapping": {}
+}
+},
+"spring.devtools-org.springframework.boot.devtools.autoconfigure.DevToolsProperties": {
+"prefix": "spring.devtools",
+"properties": {
+"livereload": {
+"enabled": true,
+"port": 35729
+},
+"remote": {
+"contextPath": "/.~~spring-boot!~",
+"secret": null,
+"secretHeaderName": "X-AUTH-TOKEN",
+"restart": {
+"enabled": true
+},
+"debug": {
+"enabled": true,
+"localPort": 8000
+},
+"proxy": {
+"host": null,
+"port": null
+}
+},
+"restart": {
+"enabled": true,
+"exclude": "META-INF/maven/**,META-INF/resources/**,resources/**,static/**,public/**,templates/**,**/*Test.class,**/*Tests.class,git.properties,META-INF/build-info.properties",
+"additionalExclude": null,
+"pollInterval": 1000,
+"quietPeriod": 400,
+"triggerFile": null,
+"additionalPaths": []
+}
+}
+},
+"spring.mvc-org.springframework.boot.autoconfigure.web.WebMvcProperties": {
+"prefix": "spring.mvc",
+"properties": {
+"dateFormat": null,
+"servlet": {
+"loadOnStartup": -1
+},
+"staticPathPattern": "/**",
+"dispatchOptionsRequest": true,
+"dispatchTraceRequest": false,
+"locale": null,
+"ignoreDefaultModelOnRedirect": true,
+"logResolvedException": true,
+"async": {
+"requestTimeout": null
+},
+"messageCodesResolverFormat": null,
+"mediaTypes": {},
+"view": {
+"prefix": null,
+"suffix": null
+},
+"localeResolver": "ACCEPT_HEADER",
+"throwExceptionIfNoHandlerFound": false
+}
+},
+"diskSpaceHealthIndicatorProperties": {
+"prefix": "management.health.diskspace",
+"properties": {
+"path": "/Volumes/MACINTOSH_HD/GitHub/SpringBoot-en-Castellano/Ejemplos/SpringBootActuator/.",
+"threshold": 10485760
+}
+}
+}
+```
+
 * **/dump**: Realiza un dump de los hilos y memoria de la aplicación.
 * **/env**: Muestra la configuración de entorno - ConfigurableEnvironment.
 * **/flyway**: Muestra cualquier migración de base de datos aplicada.
