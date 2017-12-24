@@ -333,6 +333,32 @@ El SB Actuator habilitará los siguientes endpoints de gestión en nuestras apli
 * **/auditevents**: Expone información sobre eventos.
 * **/autoconfig**: Muestra toda la configuración de la aplicación.
 * **/beans**: Muestra la list completa de beans.
+
+```elixir
+[
+    {
+        "context": "application",
+        "parent": null,
+        "beans": [
+        {
+            "bean": "holaMundoApplication",
+            "aliases": [],
+            "scope": "singleton",
+            "type": "com.maldiny.spring.boot.hola_mundo.HolaMundoApplication$$EnhancerBySpringCGLIB$$ad10771c",
+            "resource": "null",
+            "dependencies": []
+        },
+        {
+            "bean": "org.springframework.boot.autoconfigure.internalCachingMetadataReaderFactory",
+            "aliases": [],
+            "scope": "singleton",
+            "type": "org.springframework.core.type.classreading.CachingMetadataReaderFactory",
+            "resource": "null",
+            "dependencies": []
+        },
+ 	...
+```
+
 * **/configprops**: Muestra la lista de @ConfigurationProperties.
 
 ```elixir
@@ -358,6 +384,32 @@ El SB Actuator habilitará los siguientes endpoints de gestión en nuestras apli
 
 * **/dump**: Realiza un dump de los hilos y memoria de la aplicación.
 * **/env**: Muestra la configuración de entorno - ConfigurableEnvironment.
+
+```elixir
+{
+	"profiles": [],
+	"server.ports": {
+		"local.server.port": 8080
+	},
+	"commandLineArgs": {
+		"spring.output.ansi.enabled": "always"
+	},
+	"servletContextInitParams": {},
+	"systemProperties": {
+        "com.sun.management.jmxremote.authenticate": "false",
+        "java.runtime.name": "Java(TM) SE Runtime Environment",
+        "sun.boot.library.path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib",
+        "java.vm.version": "25.144-b01",
+        "gopherProxySet": "false",
+        "java.vm.vendor": "Oracle Corporation",
+        "java.vendor.url": "http://java.oracle.com/",
+        "java.rmi.server.randomIDs": "true",
+        "path.separator": ":",
+        "java.vm.name": "Java HotSpot(TM) 64-Bit Server VM",
+        "file.encoding.pkg": "sun.io",
+ 	...
+```
+
 * **/flyway**: Muestra cualquier migración de base de datos aplicada.
 * **/health**: Muestra la información de salud de la aplicación.
 
@@ -375,10 +427,153 @@ El SB Actuator habilitará los siguientes endpoints de gestión en nuestras apli
 
 * **/info**: Muestra información sobre la aplicación.
 * **/loggers**: Muestra la configuración de los loggers configurados.
+
+```elixir
+{
+    "levels": [
+        "OFF",
+        "ERROR",
+        "WARN",
+        "INFO",
+        "DEBUG",
+        "TRACE"
+    ],
+    "loggers": {
+        "ROOT": {
+        	"configuredLevel": "INFO",
+        	"effectiveLevel": "INFO"
+        },
+        "com": {
+        	"configuredLevel": null,
+        	"effectiveLevel": "INFO"
+        },
+        "com.maldiny": {
+        	"configuredLevel": null,
+        	"effectiveLevel": "INFO"
+        },
+        "com.maldiny.spring": {
+        	"configuredLevel": null,
+        	"effectiveLevel": "INFO"
+        },
+ 	...
+```
+
 * **/metrics**: Muestra métricas de la aplicación.
+
+```elixir
+{
+    "mem": 247363,
+    "mem.free": 149087,
+    "processors": 8,
+    "instance.uptime": 33459034,
+    "uptime": 8235865,
+    "systemload.average": 1.73974609375,
+    "heap.committed": 185344,
+    "heap.init": 262144,
+    "heap.used": 36256,
+    "heap": 3728384,
+    "nonheap.committed": 63488,
+    "nonheap.init": 2496,
+    "nonheap.used": 62021,
+    "nonheap": 0,
+    "threads.peak": 42,
+    "threads.daemon": 28,
+    "threads.totalStarted": 90,
+    "threads": 30,
+    "classes": 6891,
+    "classes.loaded": 6963,
+    "classes.unloaded": 72,
+    "gc.ps_scavenge.count": 19,
+    "gc.ps_scavenge.time": 119,
+    "gc.ps_marksweep.count": 5,
+    "gc.ps_marksweep.time": 598,
+    "httpsessions.max": -1,
+    "httpsessions.active": 0,
+    "gauge.response.mappings": 2,
+    "gauge.response.actuator": 5,
+    "gauge.response.beans": 7,
+    "gauge.response.trace": 22,
+    "gauge.response.autoconfig": 12,
+    "gauge.response.health": 2,
+    "gauge.response.auditevents": 10,
+    "gauge.response.heapdump": 2600,
+    "gauge.response.info": 2,
+    "gauge.response.star-star.favicon.ico": 3,
+    "gauge.response.loggers": 4,
+    "gauge.response.env": 2,
+    "gauge.response.configprops": 42,
+    "counter.status.200.actuator": 2,
+    "counter.status.200.mappings": 2,
+    "counter.status.200.loggers": 2,
+    "counter.status.200.configprops": 3,
+    "counter.status.200.heapdump": 2,
+    "counter.status.200.health": 2,
+    "counter.status.200.autoconfig": 1,
+    "counter.status.200.env": 3,
+    "counter.status.200.trace": 1,
+    "counter.status.200.info": 1,
+    "counter.status.200.star-star.favicon.ico": 2,
+    "counter.status.200.beans": 2,
+    "counter.status.200.auditevents": 1
+}
+```
+
 * **/mappings**: Muestra el listado de paths configurados @RequestMapping.
+
+```elixir
+{
+    "/webjars/**": {
+    	"bean": "resourceHandlerMapping"
+    },
+    "/**": {
+    	"bean": "resourceHandlerMapping"
+    },
+    "/**/favicon.ico": {
+    	"bean": "faviconHandlerMapping"
+    },
+    "{[/error]}": {
+    	"bean": "requestMappingHandlerMapping",
+    	"method": "public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)"
+    },
+ 	...
+```
+
 * **/shutdown**: Permite realizar la parada de la aplicación. 
 * **/trace**: Muestra las peticiones HTTP recibidas.
+
+```elixir
+[
+	{
+        "timestamp": 1514098780366,
+        "info": {
+        	"method": "GET",
+        	"path": "/metrics",
+        	"headers": {
+                "request": {
+                    "host": "localhost:8080",
+                    "connection": "keep-alive",
+                    "upgrade-insecure-requests": "1",
+                    "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36",
+                    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                    "referer": "http://localhost:8080/actuator",
+                    "accept-encoding": "gzip, deflate, br",
+                    "accept-language": "es-ES,es;q=0.9,en;q=0.8,gl;q=0.7",
+                    "cookie": "JSESSIONID=4E6D5A7AD96290FFFFAC2F8F811AF3DC; _ga=GA1.1.2071860829.1512756778; utag_main=v_id:0160375494530032df70be8b952605078001807000ac2$_sn:3$_ss:0$_st:1513168351341$ses_id:1513166309309%3Bexp-session$_pn:1%3Bexp-session"
+                },
+                "response": {
+                    "X-Application-Context": "application",
+                    "Content-Type": "application/vnd.spring-boot.actuator.v1+json;charset=UTF-8",
+                    "Transfer-Encoding": "chunked",
+                    "Date": "Sun, 24 Dec 2017 06:59:40 GMT",
+                    "status": "200"
+                }
+            },
+            "timeTaken": "8"
+        }
+    },
+	...
+```
+
 * **/docs**: Muestra documentación sobre las peticiones. Requiere SB actuator docs.
 * **/heapdump**: Realiza la descarga en formato GZip del head dump de memoria. 
 * **/jolokia**: Expone los beans JMX a través de HTTP. Requiere Jolokia.
