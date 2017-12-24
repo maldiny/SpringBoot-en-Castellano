@@ -338,6 +338,11 @@ El SB Actuator habilitará los siguientes endpoints de gestión en nuestras apli
 * **/env**: Muestra la configuración de entorno - ConfigurableEnvironment.
 * **/flyway**: Muestra cualquier migración de base de datos aplicada.
 * **/health**: Muestra la información de salud de la aplicación.
+
+```js
+{"status": "UP","diskSpace": {"status": "UP","total": 749296615424,"free": 266393800704,"threshold": 10485760}}
+```
+
 * **/info**: Muestra información sobre la aplicación.
 * **/loggers**: Muestra la configuración de los loggers configurados.
 * **/metrics**: Muestra métricas de la aplicación.
