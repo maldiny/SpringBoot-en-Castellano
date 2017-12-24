@@ -339,15 +339,15 @@ El SB Actuator habilitará los siguientes endpoints de gestión en nuestras apli
 * **/flyway**: Muestra cualquier migración de base de datos aplicada.
 * **/health**: Muestra la información de salud de la aplicación.
 
-```js
+```perl
 {
-	"status": "UP",
-	"diskSpace": {
-      "status": "UP",
-      "total": 749296615424,
-      "free": 266393800704,
-      "threshold": 10485760
-	}
+    "status": "UP",
+    "diskSpace": {
+        "status": "UP",
+        "total": 749296615424,
+        "free": 266393800704,
+        "threshold": 10485760
+    }
 }
 ```
 
