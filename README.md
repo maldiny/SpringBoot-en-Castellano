@@ -617,7 +617,7 @@ El plugin de maven para SB se denomina **spring-boot-maven-plugin**. Para hacer 
 <!-- ... -->
     <build>
         <plugins>
-			<plugin>
+        	<plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.5.8.RELEASE</version>
