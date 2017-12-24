@@ -341,13 +341,13 @@ El SB Actuator habilitará los siguientes endpoints de gestión en nuestras apli
 
 ```js
 {
-"status": "UP",
-"diskSpace": {
-"status": "UP",
-"total": 749296615424,
-"free": 266393800704,
-"threshold": 10485760
-}
+	"status": "UP",
+	"diskSpace": {
+      "status": "UP",
+      "total": 749296615424,
+      "free": 266393800704,
+      "threshold": 10485760
+	}
 }
 ```
 
