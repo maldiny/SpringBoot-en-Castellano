@@ -775,13 +775,116 @@ Para poder llevar a cabo esta integración, es necesario incorporar el ciclo de 
 En primer lugar hablaremos de la estructura de directorios necesaria:
 
 ```xml
-└── src
-    └── main
-        └── java
-            └── hello
-````
+└── src/
+    └── main/
+        └── angular5/
+        	└── package.json
+        	└── dist/
+	        	└── index.html
+        └── webapp/
+        	└── index.html
+	
+```
 
-Se puede encontrar un ejemplo completo de publicación de Websockets mediante SB y consumo mediante una aplicación Angular5 en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootWebsocket).
+Como se puede ver, la aplicación se encuentra dentro del directorio **angular5** y por lo tanto, al realizar el **npm build** del proyecto, se genera el compilado de sus fuentes en el directorio **dist**. Para realizar esta acción en el ciclo de vida de compilado de maven es necesario incluir el siguiente plugin:
+
+```xml
+<plugin>
+  <groupId>com.github.eirslett</groupId>
+  <artifactId>frontend-maven-plugin</artifactId>
+  <version>1.5</version>
+  <configuration>
+    <nodeVersion>v8.2.1</nodeVersion>
+    <workingDirectory>src/main/angular5/</workingDirectory>
+    <outputDirectory>src/main/webapp/</outputDirectory>
+    <npmVerson>5.3.0</npmVerson>
+  </configuration>
+  <executions>
+    <execution>
+      <id>install node and npm</id>
+      <goals>
+        <goal>install-node-and-npm</goal>
+      </goals>
+      <phase>generate-resources</phase>
+    </execution>
+    <execution>
+      <id>npm install</id>
+      <goals>
+        <goal>npm</goal>
+      </goals>
+      <phase>generate-resources</phase>
+      <configuration>
+        <arguments>install</arguments>
+      </configuration>
+    </execution>
+    <execution>
+      <id>npm build</id>
+      <goals>
+        <goal>npm</goal>
+      </goals>
+      <phase>compile</phase>
+      <configuration>
+        <arguments>run build</arguments>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+Adicionalmente, es necesario un paso adicional que contemple el **clean** de un proyecto:
+
+```xml
+<plugin>
+  <artifactId>maven-clean-plugin</artifactId>
+  <version>2.5</version>
+  <configuration>
+    <filesets>
+      <fileset>
+        <directory>src/main/angular5/dist</directory>
+        <includes>
+          <include>*</include>
+        </includes>
+      </fileset>
+      <fileset>
+        <directory>src/main/webapp</directory>
+        <includes>
+          <include>*</include>
+        </includes>
+      </fileset>
+    </filesets>
+  </configuration>
+</plugin>
+```
+
+Para terminar, una vez generados los fuentes es necesario copiarlos al directorio **webapp** dónde se publican los recursos a través del servidor de aplicaciones. Para realizar la copia la realizaremos del siguiente modo:
+
+```xml
+<plugin>
+  <artifactId>maven-resources-plugin</artifactId>
+  <version>3.0.2</version>
+  <executions>
+    <execution>
+      <id>copy-resources</id>
+      <!-- here the phase you need -->
+      <phase>install</phase>
+      <goals>
+        <goal>copy-resources</goal>
+      </goals>
+      <configuration>
+        <outputDirectory>${basedir}/src/main/webapp</outputDirectory>
+        <resources>
+          <resource>
+            <directory>src/main/angular5/dist</directory>
+            <filtering>false</filtering>
+          </resource>
+        </resources>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+```
+
+Se puede encontrar el ejemplo completo de publicación de Websockets mediante SB y consumo mediante una aplicación Angular5 en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootWebsocket).
 
 **[Ir al índice](#Índice)**
 
