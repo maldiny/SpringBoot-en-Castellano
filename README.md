@@ -308,6 +308,76 @@ Se puede encontrar un ejemplo completo de configuración del CORS en SB en el si
 
 ## websockets
 
+Como hemos visto anteriormente, SB facilita el starter **spring-boot-starter-websocket** para realizar la creación y configuración de websockets.
+
+Para empezar será necesario incorporar las siguientes dependencias:
+
+```xml
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>sockjs-client</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>stomp-websocket</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+```
+
+A continuación, es necesario establecer los canales por los que se realizará la emisión de la información:
+
+```java
+@Configuration
+@EnableWebSocketMessageBroker
+public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
+
+    @Override
+    public void configureMessageBroker(MessageBrokerRegistry config) {
+        config.enableSimpleBroker("/topic");
+
+        config.setApplicationDestinationPrefixes("/app")
+        .enableSimpleBroker("/time");
+    }
+
+    @Override
+    public void registerStompEndpoints(StompEndpointRegistry registry) {
+        registry.addEndpoint("/socket")
+        .setAllowedOrigins("*")
+        .withSockJS();
+    }
+
+}
+```
+
+Una vez realizada la configuración del socket, es necesario comenzar a emitir la información. Para ello lo realizaremos utilizando la clase **SimpMessagingTemplate**:
+
+```java
+@Controller
+public class WebSocketController {
+
+    private final SimpMessagingTemplate template;
+
+    @Autowired
+    WebSocketController(SimpMessagingTemplate template){
+        this.template = template;
+    }
+    
+    @Scheduled(fixedRate = 10)
+    public void reportCurrentTime() {
+    	this.template.convertAndSend("/time",  new SimpleDateFormat("HH:mm:ss.SSS").format(new Date()));
+    }
+}
+```
+
+En este ejemplo, estaremos emitiendo la hora exacta cada 10 milisegundos a través del canal "/time" para que todos aquellos clientes suscritos a este canal puedan recibir la información.
+
+Se puede encontrar un ejemplo completo de configuración del CORS en SB en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootWebsocket).
+
 **[Ir al índice](#Índice)**
 
 ## webservices
