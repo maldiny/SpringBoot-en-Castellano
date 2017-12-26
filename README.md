@@ -209,6 +209,17 @@ public class MyConfiguration {...}
 
 En cualquier fichero de configuración del proyecto se podrá incluir configuración específica que sobreescriba la configuración definida automáticamente en el proyecto.
 
+Por ejemplo, Spring Boot Starter Web autoconfigura lo siguiente:
+- Configura el Dispatcher servlet a la url "/".
+- Configura la página de error genérica a la url "/error".
+- Configura la url "/webjars/*" para gestionar los ficheros estáticos (jquery, ...)
+- Configura el contenedor embebido a la aplicación, por defecto, Tomcat.
+
+Dispatcher Servlet
+Error Page
+Web Jars to manage your static dependencies
+Embedded Servlet Container - Tomcat is the default
+
 **[Ir al índice](#Índice)**
 
 ## beans e inyección de depencias
