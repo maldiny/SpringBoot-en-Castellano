@@ -376,7 +376,7 @@ public class WebSocketController {
 
 En este ejemplo, estaremos emitiendo la hora exacta cada 10 milisegundos a través del canal "/time" para que todos aquellos clientes suscritos a este canal puedan recibir la información.
 
-Se puede encontrar un ejemplo completo de configuración del CORS en SB en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootWebsocket).
+Se puede encontrar un ejemplo completo de publicación de Websockets mediante SB y consumo mediante una aplicación Angular5 en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootWebsocket).
 
 **[Ir al índice](#Índice)**
 
@@ -765,6 +765,23 @@ Para hacer uso de cualquiera de ellas en una jsp podrá realizarse del siguiente
 <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 ````
+
+### embeber una aplicación Angular en una aplicación Spring Boot
+
+En muchas ocasiones se dará el caso en el que se quiera realizar una aplicación SB en la que se implementen una serie de servicios de negocio mediante Webservices o Websockets, con una capa de presentación realizada con algún framework de presentación como puede ser Angular. 
+
+Para poder llevar a cabo esta integración, es necesario incorporar el ciclo de compilado de fuentes de Angular en el ciclo de compilado de fuente de la aplicación SB mediante el uso de maven.
+
+En primer lugar hablaremos de la estructura de directorios necesaria:
+
+```xml
+└── src
+    └── main
+        └── java
+            └── hello
+````
+
+Se puede encontrar un ejemplo completo de publicación de Websockets mediante SB y consumo mediante una aplicación Angular5 en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootWebsocket).
 
 **[Ir al índice](#Índice)**
 
