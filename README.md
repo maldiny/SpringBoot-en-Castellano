@@ -256,6 +256,8 @@ com.maldiny.precio=10
 com.env.url=local
 ```
 
+La clase **YamlPropertySourceLoaderclass** permite exponer las propiedades definidas en los YAML en el contexto de Spring para utilizarla por ejemplo en las anotaciones @Value.
+
 **[Ir al índice](#Índice)**
 
 ## CORS configuración
@@ -933,6 +935,42 @@ Se puede encontrar un ejemplo completo de configuración de SB Actuator en el si
 **[Ir al índice](#Índice)**
 
 ## despliegue en cloud (cloud foundry, heroku, openshift, amazon y Google Cloud)
+
+SB ofrece starters que facilitan el despliegue e integración con numerosos servicios de los principales proveedores cloud del mercado.
+
+Al conjunto de estos starters se les ha denominado **Spring Cloud Connectors** o **spring-boot-starter-cloud-connectors**.
+
+### cloud foundry
+
+Cloud Foundry es el cloud que permite realizar el despliegue de nuestras aplicaciones SB propiedad de Pivotal. Para facilitar el despliegue y gestión de las aplicaciones desplegadas, Pivotal facilita un CLI denominado **cloud foundry command line tool** con el que se podrán realizar operaciones como la publicación mediante un único comando como el siguiete:
+
+```cmd
+cf push ID_CUENTA_CLOUD -p target/SpringBootHolaMundo-0.0.1-SNAPSHOT.jar
+```
+
+Se puede encontrar más información sobre el conector específico de CF en el siguiente [enlace](https://cloud.spring.io/spring-cloud-connectors/spring-cloud-cloud-foundry-connector.html)
+
+### heroku
+
+Heroku es uno de los cloud gratuitos que mayor aceptación esta teniendo en estos momentos debido a su facilidad de uso y el gran número de servicios que ofrece de caja a los desarrolladores.
+
+Para realizar el despliegue y publicación de la aplicación en el PaaS de Heroku bastará con ejecutar el siguiente comando:
+
+```cmd
+git push heroku master
+```
+
+En el caso de heroku se facilita del siguiente starter para realizar la autoconfiguración de los servicios asociados a la aplicación en función de las variables de entorno existentes:
+
+```xml
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+   	<artifactId>spring-cloud-heroku-connector</artifactId>
+ 	<version>2.0.1.RELEASE</version>
+</dependency>
+```
+
+Se puede encontrar más información sobre el conector específico de Heroku en el siguiente [enlace](https://cloud.spring.io/spring-cloud-connectors/spring-cloud-heroku-connector.html)
 
 **[Ir al índice](#Índice)**
 
