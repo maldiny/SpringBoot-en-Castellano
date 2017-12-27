@@ -316,6 +316,29 @@ Se puede encontrar un ejemplo completo de configuración del CORS en SB en el si
 
 ## testeo de aplicaciones
 
+Una de las partes fundamentales en el desarrollo de software es la implementación de test unitarios que garanticen el correcto funcionamiento de nuestros desarrollos.
+
+Al igual que Spring realizó en frameworks anteriores, para SB ha facilitado un starter denominado **spring-boot-starter-test** que engloba numerosos frameworks que facilitan la construcción de test unitarios, como por ejemplo los siguientes:
+- **JUnit:** El framework estándar para la construcción de test unitarios en las aplicaciones Java.
+- **Spring Test & Spring Boot Test:** Utilidades para el testing de aplicaciones SB.
+- **AssertJ:** Librería para la creación de aserciones.
+- **Hamcrest:** Hamcrest es una librería que nos provee de una serie de matchers que podemos utilizar para hacer nuestros tests más legibles.
+- **Mockito:** Framework de apoyo para la realización de mocks.
+- **JSONassert:** Librería para la creación de aserciones para JSON.
+- **JSONPath:** Libería para emplear XPath para JSON.
+
+Para apoyarnos a la hora de detectar en el IDE aquellos partes de nuestro código que han sido cubiertas por test unitarios podemos apoyarnos del plugin **Eclemma** disponible en el siguiente [enlace](http://www.eclemma.org/installation.html). De este modo aparecerá iluminada aquellas partes del código testeadas:
+
+<p align="center"><img src="Imagenes//[Maldiny]_Eclemma.png"></p>
+
+En la creación por defecto de nuestro proyecto, podremos ver cómo se ha generado una clase de test en la carpeta **src/main/test/** con el nombre de nuestro proyecto y que contiene un test que realiza la prueba de carga del contexto del proyecto únicamente:
+
+<p align="center"><img src="Imagenes//[Maldiny]_Hola_Mundo_test.png"></p>
+
+Se puede apreciar cómo gracias a las anotaciones **@RunWith(SpringRunner.class)** y **@SpringBootTest** se creará todo el contexto necesario para que podamos realizar pruebas unitarias de nuestro código.
+
+Adicionalmente hemos agregado un test adicional para alcanzar el 100% de cobertura de código.
+
 **[Ir al índice](#Índice)**
 
 ## Spring Batch
