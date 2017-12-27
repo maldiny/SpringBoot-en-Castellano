@@ -317,6 +317,94 @@ Se puede encontrar un ejemplo completo de configuración del CORS en SB en el si
 
 **[Ir al índice](#Índice)**
 
+## Spring Batch
+
+Como ya hemos visto en ocasiones anteriores, [Spring Batch] es un framework ligero enfocado específicamente en la creación de procesos batch. Se puede consultar más información y ejemplos detallados sobre este framework en el siguiente [enlace](https://github.com/maldiny/Spring-Batch-en-Castellano).
+
+En este apartado vamos a revisar cómo realizar algunos ejemplos básicos de Spring Batch con el framework SB.
+
+Al igual que en casos anteriores el primer paso es agregar su SB starter correspondiente, en este caso, el **spring-boot-starter-batch**:
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-batch</artifactId>
+</dependency>
+```
+
+En el caso de implementar la construcción de un proceso batch necesitaremos realizar la configuración y definición del proceso que queremos construir. Para ello debemos generar una clase de @Configuration del siguiente modo:
+
+```java
+@Configuration
+@EnableBatchProcessing
+public class BatchConfiguration {
+
+    @Autowired
+    public JobBuilderFactory jobBuilderFactory;
+
+    @Autowired
+    public StepBuilderFactory stepBuilderFactory;
+
+    @Autowired
+    public DataSource dataSource;
+    
+    @Autowired
+    public Tasklet1 tasklet1;
+    
+    @Autowired
+    public Tasklet2 tasklet2;
+
+    @Bean
+    public Job job(JobCompletionNotificationListener listener) {
+        return jobBuilderFactory.get("job")
+                .incrementer(new RunIdIncrementer())
+                .listener(listener)
+                .start(step1()).next(step2())
+                .build();
+    }
+    
+    @Bean
+    public Step step1() {
+        return stepBuilderFactory.get("step1")
+        		.tasklet(tasklet1)
+                .build();
+    }
+    
+    @Bean
+    public Step step2() {
+        return stepBuilderFactory.get("step2")
+        		.tasklet(tasklet2)
+                .build();
+    }
+}
+```
+
+Vamos a ver en detalle cada uno de estos elementos:
+- **@EnableBatchProcessing:** Define la configuración por defecto para poder generar un proceso batch.
+- **JobBuilderFactory:** Factoría que permite realizar la construcción de jobs generando la configuración por defecto del JobRepository. Como ya hemos mencionado en otras ocasiones, el JobRepository define la conexión con la base de datos de persistencia de los datos de ejecución del proceso batch.
+- **StepBuilderFactory:** Fatoría que permite realizar la construcción de los steps de un job asignando la configuración por defecto del JobRepository.
+- **Job:** Definición del proceso batch. En él se establece diversa configuración como pueden ser los listeners, la secuencia de ejecución de los steps y flujo de los mismos que forman el job.
+- **Step:** Definición del step y configuración en función de su naturaleza (tasklet, chunk, flujo, particionado, ...). En él se puede configurar entre otros el transactionmanager.
+- **Tasklet1/Tasklet2** Los tasklets será el último nodo de la cadena en el que se implementará la lógica de ejecución propiamente dicha. Por ejemplo:
+
+```java
+@Component
+public class Tasklet1 implements Tasklet{
+ 
+	@Override
+	public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
+		try{
+    		System.out.println(">>>>>>>>>>>>>>>>>>>>>>> Tasklet1 <<<<<<<<<<<<<<<<<<<<<<<<");
+    	}catch(Exception e){
+    		e.printStackTrace();
+    	}
+		return null;
+	}
+}
+```
+
+Se puede encontrar más información relevante sobre cómo configurar el arranque de un proceso batch en el siguiente [enlace](https://docs.spring.io/spring-batch/trunk/apidocs/org/springframework/batch/core/configuration/annotation/EnableBatchProcessing.html).
+
 ## websockets
 
 Como hemos visto anteriormente, SB facilita el starter **spring-boot-starter-websocket** para realizar la creación y configuración de websockets.
