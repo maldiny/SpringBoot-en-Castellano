@@ -339,6 +339,9 @@ Se puede apreciar cómo gracias a las anotaciones **@RunWith(SpringRunner.class)
 
 Adicionalmente hemos agregado un test adicional para alcanzar el 100% de cobertura de código.
 
+Se puede revisar el proyecto completo en el siguiente 
+[enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootHolaMundo).
+
 **[Ir al índice](#Índice)**
 
 ## Spring Batch
