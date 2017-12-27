@@ -393,6 +393,83 @@ Se puede encontrar un ejemplo completo de publicación de Websockets mediante SB
 
 ## webservices
 
+En el apartado de los webservice distinguiremos dos tipologías independientes, para la generación de webservices SOAP emplearemos el starter de SB **spring-boot-starter-web-services**, mientras que si necesitamos crear webservices REST o aplicaciones web emplearemos el starter de SB **spring-boot-starter-web**.
+
+### webservices SOAP
+
+Para crear webservice SOAP con SB en primer lugar necesitaremos incluir la dependencia del starter junto con una librería adicional para la creación y publicación del wsdl:
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-web-services</artifactId>
+</dependency>
+<dependency>
+  <groupId>wsdl4j</groupId>
+  <artifactId>wsdl4j</artifactId>
+</dependency>
+```
+
+Una vez agregada la dependencia, será necesario establecer la configuración propia del servidor para generar los endpoints de los webservice SOAP:
+
+```java
+@EnableWs
+@Configuration
+public class WebServiceConfig extends WsConfigurerAdapter {
+	@Bean
+	public ServletRegistrationBean messageDispatcherServlet(ApplicationContext applicationContext) {
+		MessageDispatcherServlet servlet = new MessageDispatcherServlet();
+		servlet.setApplicationContext(applicationContext);
+		servlet.setTransformWsdlLocations(true);
+		return new ServletRegistrationBean(servlet, "/ws/*");
+	}
+
+	@Bean(name = "personajes")
+	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		wsdl11Definition.setPortTypeName("PersonajesPort");
+		wsdl11Definition.setLocationUri("/ws");
+		wsdl11Definition.setTargetNamespace("http://ws.webservices.boot.spring.maldiny.com");
+		wsdl11Definition.setSchema(countriesSchema);
+		return wsdl11Definition;
+	}
+
+	@Bean
+	public XsdSchema countriesSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("personajes.xsd"));
+	}
+}
+```
+
+En el caso del ejemplo se ha configurado que los enpoints se encuentren en la ruta "/ws/" y su definición vendra dada por el esquema contenido en el fichero **personajes.xsd**.
+
+Para finalizar, será necesario publicar los endpoints que se quieran generar mediante el uso de la anotación **@Endpoint**:
+
+```java
+@Endpoint
+public class PersonajeEndpoint {
+	private static final String NAMESPACE_URI = "http://ws.webservices.boot.spring.maldiny.com";
+
+	private PersonajeRepository PersonajeRepository;
+
+	@Autowired
+	public PersonajeEndpoint(PersonajeRepository PersonajeRepository) {
+		this.PersonajeRepository = PersonajeRepository;
+	}
+
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getPersonajeRequest")
+	@ResponsePayload
+	public GetPersonajeResponse getPersonaje(@RequestPayload GetPersonajeRequest request) {
+		GetPersonajeResponse response = new GetPersonajeResponse();
+		response.setPersonaje(PersonajeRepository.findPersonaje(request.getNombre()));
+
+		return response;
+	}
+}
+```
+
+Se puede encontrar un ejemplo completo de publicación de Webservices SOAP en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootWebservices).
+
 **[Ir al índice](#Índice)**
 
 ## springboot actuator
