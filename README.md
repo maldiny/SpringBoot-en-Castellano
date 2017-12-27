@@ -972,7 +972,7 @@ En el caso de heroku se facilita del siguiente starter para realizar la autoconf
 
 Se puede encontrar más información sobre el conector específico de Heroku en el siguiente [enlace](https://cloud.spring.io/spring-cloud-connectors/spring-cloud-heroku-connector.html)
 
-Otros de los PaaS a los que SB facilita connectores por defecto son Amazon, OpenShift, IBM Bluemix, ...
+Otros de los PaaS a los que SB facilita connectores por defecto son Amazon, OpenShift, IBM Bluemix, Google Cloud, ...
 
 **[Ir al índice](#Índice)**
 
