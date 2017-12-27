@@ -17,14 +17,15 @@ Para iniciar una aplicación SB (SpringBoot a partir de ahora) bastará con ejec
   10. configuración del contenedor embebido
   11. acceso a bases de datos SQL y NoSQL
   12. testeo de aplicaciones
-  13. websockets
-  14. webservices
-  15. springboot actuator
-  16. despliegue en cloud (cloud foundry, heroku, openshift, amazon y Google Cloud)
-  17. springboot maven plugin
-  18. consejos
-  19. FAQs
-  20. referencias
+  13. spring batch
+  14. websockets
+  15. webservices
+  16. springboot actuator
+  17. despliegue en cloud (cloud foundry, heroku, openshift, amazon y Google Cloud)
+  18. springboot maven plugin
+  19. consejos
+  20. FAQs
+  21. referencias
 
 ## Introducción
 
@@ -72,7 +73,7 @@ brew install springboot
 
 **[Ir al índice](#Índice)**
 
-## Creación de una aplicación base y ejecución
+## creación de una aplicación base y ejecución
 
 Para iniciar la construcción de nuestra primera aplicación SB se plantean varias alternativas. A continuación se enumeran dos de ellas:
 
