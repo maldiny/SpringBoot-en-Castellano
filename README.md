@@ -432,6 +432,7 @@ El framework de SpringBatch es muy completo, extenso y complejo por lo que a con
 
 - **Spring Batch con tasklets**: [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootSpringBatchTasklet).
 - **Spring Batch con chunks**: [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootSpringBatchChunk).
+- **Spring Batch con acceso a base de datos**: [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootSpringBatchDatabaseReaderWriter).
 
 Se puede encontrar más información relevante sobre cómo configurar el arranque de un proceso batch en el siguiente [enlace](https://docs.spring.io/spring-batch/trunk/apidocs/org/springframework/batch/core/configuration/annotation/EnableBatchProcessing.html).
 
