@@ -429,6 +429,7 @@ public Step step1() {
 ```
 
 El framework de SpringBatch es muy completo, extenso y complejo por lo que a continuación dejamos el enlace a algunos ejemplos configurados mediante Springboot:
+
 - **Spring Batch con tasklets**: [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootSpringBatchTasklet).
 - **Spring Batch con chunks**: [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootSpringBatchChunk).
 
@@ -955,6 +956,29 @@ mvn package
 ## consejos
 
 En el siguiente apartado se han recopilado distintos consejos obtenidos con la experiencia a la hora de realizar desarrollos mediante el framework de SB:
+
+### estructura de un proyecto SB
+
+La estructuración típica de los ficheros de una aplicación SB con distintas capas se definirá siguiendo la siguiente nomenclatura de paquetes:
+
+```xml
+└── src/main/java
+    └── com/maldiny/spring/boot/springbatch
+        └── Application.java
+	└── domain/
+        └── Personaje.java
+	    └── PersonajeRepository.java
+    └── service/
+        └── PersonajeService.java
+    └── web/
+        └── PersonajeController.java
+```
+
+Los paquetes definidos se usarán para lo siguiente:
+- **domain:** Para almacenar las entidades de persistencia y las clases que contengan los métodos de acceso al modelo (Model, Domain Service (@Service), Repository (@Repository) etc).
+- **service:** Paquete para almacenar los servicios que contienen la lógica de negocio (@Service).
+- **web:** Paquete para almacenar los controladores que conectan con la parte visual de la aplicación (@Controller).
+
 
 ### refresco automático de la aplicación durante la codificación
 
