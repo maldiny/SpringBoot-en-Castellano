@@ -403,6 +403,10 @@ public class Tasklet1 implements Tasklet{
 }
 ```
 
+El framework de SpringBatch es muy completo, extenso y complejo por lo que a continuación dejamos el enlace a algunos ejemplos configurados mediante Springboot:
+- **Spring Batch con tasklets**: [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootSpringBatchTasklet).
+- **Spring Batch con chunks**: [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootSpringBatchChunk).
+
 Se puede encontrar más información relevante sobre cómo configurar el arranque de un proceso batch en el siguiente [enlace](https://docs.spring.io/spring-batch/trunk/apidocs/org/springframework/batch/core/configuration/annotation/EnableBatchProcessing.html).
 
 ## websockets
