@@ -385,7 +385,7 @@ Vamos a ver en detalle cada uno de estos elementos:
 - **StepBuilderFactory:** Fatoría que permite realizar la construcción de los steps de un job asignando la configuración por defecto del JobRepository.
 - **Job:** Definición del proceso batch. En él se establece diversa configuración como pueden ser los listeners, la secuencia de ejecución de los steps y flujo de los mismos que forman el job.
 - **Step:** Definición del step y configuración en función de su naturaleza (tasklet, chunk, flujo, particionado, ...). En él se puede configurar entre otros el transactionmanager.
-- **Tasklet1/Tasklet2** Los tasklets será el último nodo de la cadena en el que se implementará la lógica de ejecución propiamente dicha. Por ejemplo:
+- **Tasklet1/Tasklet2:** Los tasklets será el último nodo de la cadena en el que se implementará la lógica de ejecución propiamente dicha. Por ejemplo:
 
 ```java
 @Component
@@ -400,6 +400,31 @@ public class Tasklet1 implements Tasklet{
     	}
 		return null;
 	}
+}
+```
+
+y su definición del step del siguiente modo:
+
+```java
+@Bean
+public Step step2() {
+  return stepBuilderFactory.get("step1")
+    .tasklet(tasklet1)
+    .build();
+}
+```
+
+- **Chunks:** Para definir un chunk se establece en la configuración del step del siguiente modo:
+
+```java
+@Bean
+public Step step1() {
+  return stepBuilderFactory.get("step1")
+    .<MyObject, MyObject> chunk(2)
+    .reader(customReader)
+    .processor(customProcesor)
+    .writer(customWriter)
+    .build();
 }
 ```
 
