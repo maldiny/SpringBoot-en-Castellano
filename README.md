@@ -410,6 +410,31 @@ Para crear webservice SOAP con SB en primer lugar necesitaremos incluir la depen
 </dependency>
 ```
 
+En el fichero pom.xml adicionalmente agregaremos un plugin que nos ayudará en la creación de las clases a partir de la definición del fichero **personajes.xsd**:
+
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>jaxb2-maven-plugin</artifactId>
+  <version>1.6</version>
+  <executions>
+    <execution>
+      <id>xjc</id>
+      <goals>
+        <goal>xjc</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory>
+    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+    <clearOutputDir>false</clearOutputDir>
+  </configuration>
+</plugin>
+```
+
+Este plugin generará todas las clases automáticamente y las emplazará en el proyecto en función de la definición del **tns** del fichero XSD, en este caso **xmlns:tns="http://ws.webservices.boot.spring.maldiny.com"**, por lo que se generarán las clases en la carpeta /com/maldiny/spring/boot/webservices/ws.
+
 Una vez agregada la dependencia, será necesario establecer la configuración propia del servidor para generar los endpoints de los webservice SOAP:
 
 ```java
