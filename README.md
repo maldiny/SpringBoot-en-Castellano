@@ -314,6 +314,91 @@ Se puede encontrar un ejemplo completo de configuración del CORS en SB en el si
 
 ## acceso a bases de datos SQL y NoSQL
 
+En el siguiente apartado vamos a revisar cómo realizar el acceso a bases de datos tanto SQL y NoSQL mediante los starters de SB.
+
+### acceso a base de datos SQL
+
+### acceso a base de datos NoSQL
+
+Como ya sabemos las bases de datos NoSQL son bases de datos que difieren de las tradicionales bases de datos relacionales. Entre algunos de los productos más utilizados en este ámbito son las bases de datos basadas en **MongoDB**.
+
+Al igual que en apartados anteriores comenzaremos nuestro proyecto agregando el starter correspondiente para este tipo de bases de datos:
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
+```
+
+Adicionalmente, para simplificar el ejemplo vamos a emplear una base de datos MongoDB embebida en la propia aplicación como podría ser una base de datos H2 o HSQLDB. Esto lo realizaremos incluyendo dos dependencias adicionales a nuestro proyecto:
+
+```xml
+<dependency>
+  <groupId>de.flapdoodle.embed</groupId>
+  <artifactId>de.flapdoodle.embed.mongo</artifactId>
+  <version>1.50.5</version>
+</dependency>
+<dependency>
+  <groupId>cz.jirutka.spring</groupId>
+  <artifactId>embedmongo-spring</artifactId>
+  <version>RELEASE</version>
+</dependency>
+```
+
+Una vez agregada la base de datos a la aplicación, el siguiente paso será realizar su configuración:
+
+```java
+@Configuration
+public class MongoConfig {
+    
+	private static final String MONGO_DB_URL = "localhost";
+    private static final String MONGO_DB_NAME = "embeded_db";
+    
+    @Bean
+    public MongoTemplate mongoTemplate() throws IOException {
+        EmbeddedMongoFactoryBean mongo = new EmbeddedMongoFactoryBean();
+        mongo.setBindIp(MONGO_DB_URL);
+        MongoClient mongoClient = mongo.getObject();
+        MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, MONGO_DB_NAME);
+        return mongoTemplate;
+    }
+}
+```
+
+Una vez tenemos configurada la base de datos, es necesario definir nuestro modelo de base de datos. Para ello simplemente será necesario anotar las entidades mediante la anotación @Document y definir su ID autogenerado (ObjectId)
+
+```java
+@Document
+public class Personajes {
+
+    @Id
+    private ObjectId id;
+    
+	private String nombre;
+	private String edad;
+	private String genero;
+  ...
+```
+
+Con estos simples pasos ya se dispone de la base de datos configurada y lista para ser accedida. Adicionalmente, se ha creado un repositorio y publicado a través de servicios REST. Para ello, hemos generado la siguiente clase:
+
+```java
+@RepositoryRestResource(collectionResourceRel = "personajes", path = "personajes")
+@CrossOrigin
+public interface PersonRepository extends MongoRepository<Personajes, String> {
+
+	List<Personajes> findByNombre(@Param("nombre") String nombre);
+
+}
+```
+
+Gracias a esta clase se habrá generado un endpoint **http://localhost:8080/personajes** con todas las operaciones CRUD necesarias además de todos los atributos necesarios para realizar paginación y ordenación.
+
+Para finalizar el ejemplo se ha agregado una aplicación realizada en Angular5 que nos permite hacer uso de estos servicios CRUD (alta, baja, modificación y consulta):
+
+<p align="center"><img src="Imagenes//[Maldiny]_NoSQL_Angular5.png"></p>
+
 **[Ir al índice](#Índice)**
 
 ## testeo de aplicaciones
