@@ -12,5 +12,11 @@ public class HolaMundoApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
+	
+	@Test
+	public void main(){
+		String[] args = {""};
+		HolaMundoApplication.main(args);
+	}
 
 }

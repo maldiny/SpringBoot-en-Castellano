@@ -1,0 +1,1 @@
+Podremos acceder a la url del WSDL publicado a través de la siguiente dirección: http://localhost:8080/ws/personajes.wsdl

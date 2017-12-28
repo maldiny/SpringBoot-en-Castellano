@@ -1,0 +1,57 @@
+<h4>Nuevo Personaje</h4>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input required matInput name="nombre" placeholder="Nombre" [(ngModel)]="personajesForm.nombre">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input required matInput name="edad" type="number" placeholder="Edad" [(ngModel)]="personajesForm.edad">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    
+    <mat-select required name="genero" placeholder="Genero" [(ngModel)]="personajesForm.genero">
+      <mat-option value="Masculino">Masculino</mat-option>
+      <mat-option value="Femenino">Femenino</mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-raised-button [disabled]="acceptButtonDisabled()" #acceptButton color="primary" (click)="enviarPersonaje()">Enviar</button>
+  <button mat-raised-button (click)="reiniciarPersonaje()">Reiniciar</button>
+</form>
+
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="updatePersonaje(element)">Modificar</button>
+        <button mat-raised-button color="warn" (click)="removePersonaje(element)">Borrar</button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    </ng-container>
+
+    <!-- Edad Column -->
+    <ng-container matColumnDef="edad">
+      <mat-header-cell *matHeaderCellDef> Edad </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.edad}} </mat-cell>
+    </ng-container>
+
+    <!-- Genero Column -->
+    <ng-container matColumnDef="genero">
+      <mat-header-cell *matHeaderCellDef> Género </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.genero}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

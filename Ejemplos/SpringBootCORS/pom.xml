@@ -36,6 +36,7 @@
             <scope>provided</scope>
         </dependency>
 
+		<!-- Dependencia que permite renderizar JSPs -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>

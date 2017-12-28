@@ -1,0 +1,18 @@
+<h4>Nuevo Personaje</h4>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input required matInput name="nombre" placeholder="Nombre" [(ngModel)]="personajesForm.nombre">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input required matInput name="edad" type="number" placeholder="Edad" [(ngModel)]="personajesForm.edad">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    
+    <mat-select required name="genero" placeholder="Genero" [(ngModel)]="personajesForm.genero">
+      <mat-option value="Masculino">Masculino</mat-option>
+      <mat-option value="Femenino">Femenino</mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-raised-button [disabled]="acceptButtonDisabled()" #acceptButton color="primary" (click)="enviarPersonaje()">Enviar</button>
+</form>

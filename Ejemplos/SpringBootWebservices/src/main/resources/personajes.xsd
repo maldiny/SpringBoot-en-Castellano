@@ -1,0 +1,34 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.webservices.boot.spring.maldiny.com"
+           targetNamespace="http://ws.webservices.boot.spring.maldiny.com" elementFormDefault="qualified">
+
+    <xs:element name="getPersonajeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getPersonajeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="personaje" type="tns:personaje"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="personaje">
+        <xs:sequence>
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="edad" type="xs:int"/>
+            <xs:element name="genero" type="tns:genero"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="genero">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="masculino"/>
+            <xs:enumeration value="femenino"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

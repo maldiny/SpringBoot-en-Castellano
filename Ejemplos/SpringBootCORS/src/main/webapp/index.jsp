@@ -10,7 +10,7 @@
 </script>
 <div class="container">
 	<div class="page-header">
-	  <h1>Maldiny - Configuración del COORS en SB</h1>
+	  <h1>Maldiny - Configuración del CORS en SB</h1>
 	</div>
 	<p>Bienvenido!!</p>
 	
