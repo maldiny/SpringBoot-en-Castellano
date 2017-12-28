@@ -318,6 +318,59 @@ En el siguiente apartado vamos a revisar cómo realizar el acceso a bases de dat
 
 ### acceso a base de datos SQL
 
+Para configurar una aplicación SB que requiera de acceso a base de datos, vamos a realizar un ejercicio con una base de datos H2 embebida.
+
+Primero, agregamos el starter **spring-boot-starter-data-jpa** junto con al de H2:
+
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.h2database</groupId>
+  <artifactId>h2</artifactId>
+</dependency>
+```
+
+Al agregar una base de datos en memoria, no será necesario establecer ninguna configuración adicional para establecer la conexión con la base de datos (url, usuario, pass, ...) y el esquema de base de datos se autoconfigurará en función de las entidades que se encuentren en el proyecto.
+
+A continuación, será necesario anotar el modelo de acceso a base de datos:
+
+```java
+@Entity
+public class Personajes {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
+    
+	private String nombre;
+	private String edad;
+	private String genero;
+  ...
+```
+
+Con estos simples pasos ya se dispone de la base de datos configurada y lista para ser accedida. Adicionalmente, se ha creado un repositorio y publicado a través de servicios REST. Para ello, hemos generado la siguiente clase:
+
+```java
+@RepositoryRestResource(collectionResourceRel = "personajes", path = "personajes")
+@CrossOrigin
+public interface PersonRepository extends CrudRepository<Personajes, String> {
+
+	List<Personajes> findByNombre(@Param("nombre") String nombre);
+
+}
+```
+
+Gracias a esta clase se habrá generado un endpoint **http://localhost:8080/personajes** con todas las operaciones CRUD necesarias además de todos los atributos necesarios para realizar paginación y ordenación.
+
+Para finalizar el ejemplo se ha agregado una aplicación realizada en Angular5 que nos permite hacer uso de estos servicios CRUD (alta, baja, modificación y consulta):
+
+<p align="center"><img src="Imagenes//[Maldiny]_NoSQL_Angular5.png"></p>
+
+Se puede encontrar un ejemplo completo de utilización de bases de datos SQL como H2, exposición mediante servicios REST y consulta mediante una aplicación Angular5 en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootDatabaseDBSQL).
+
 ### acceso a base de datos NoSQL
 
 Como ya sabemos las bases de datos NoSQL son bases de datos que difieren de las tradicionales bases de datos relacionales. Entre algunos de los productos más utilizados en este ámbito son las bases de datos basadas en **MongoDB**.
