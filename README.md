@@ -399,6 +399,8 @@ Para finalizar el ejemplo se ha agregado una aplicación realizada en Angular5 q
 
 <p align="center"><img src="Imagenes//[Maldiny]_NoSQL_Angular5.png"></p>
 
+Se puede encontrar un ejemplo completo de utilización de bases de datos NoSQL como MongoDB, exposición mediante servicios REST y consulta mediante una aplicación Angular5 en el siguiente [enlace](https://github.com/maldiny/SpringBoot-en-Castellano/tree/master/Ejemplos/SpringBootDatabaseMongoDBNoSQL).
+
 **[Ir al índice](#Índice)**
 
 ## testeo de aplicaciones
