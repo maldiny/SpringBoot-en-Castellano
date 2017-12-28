@@ -2,6 +2,7 @@ target/
 .mvn
 /node
 /bin
+package-lock.json
 
 ### STS ###
 .apt_generated
