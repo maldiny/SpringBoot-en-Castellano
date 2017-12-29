@@ -1350,6 +1350,52 @@ Se puede encontrar el ejemplo completo de publicación de Websockets mediante SB
 
 **[Ir al índice](#Índice)**
 
+## FAQs
+
+### ¿Qué es Spring Boot?
+
+**[Ir a la descripción](#Introducción)**
+
+### ¿Qué ventajas aporta Spring Boot?
+
+### ¿Qué herramientas de construcción de proyectos se pueden utilizar para desarrollar una aplicación Spring Boot?
+
+### ¿Qué es JavaConfig?
+
+### ¿Cómo se puede configurar una aplicación Spring Boot para que se redesplieguen los cambios automáticamente?
+
+### ¿Qué papel juega el Actuator de Spring Boot?
+
+### ¿Cómo se puede modificar el puerto de una aplicación Spring Boot?
+
+### ¿Qué es el YAML?
+
+### ¿Cómo se puede agregar una capa de seguridad a una aplicación de Spring Boot?
+
+### ¿Cómo se puede integrar Spring Boot y ActiveMQ?
+
+### ¿Cómo se puede integrar Spring Boot y Kafka?
+
+### ¿Cómo se puede implementar la paginación y ordenación en Spring Boot?
+
+### ¿Qué es swagger? ¿Qué papel juega en una aplicación Spring Boot?
+
+### ¿Qué son los perfiles en Spring? ¿Para qué se utilizan?
+
+### ¿Qué es Spring Batch y cómo se integra con una aplicación Spring Boot?
+
+### ¿Qué es un template de FreeMarker?
+
+### ¿Qué es el cacheo? ¿Cómo puede cachearse información en Spring Boot?
+
+### ¿Qué es AOP y cómo puede utilizarse con Spring Boot?
+
+### ¿Qué es Apache Kafka y cómo puede utilizarse con Spring Boot?
+
+### ¿Qué componentes de Spring Cloud existen?
+
+**[Ir al índice](#Índice)**
+
 ## Referencias
 
 * [Spring Boot - Reference Documentation](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/)
