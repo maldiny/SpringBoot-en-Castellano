@@ -1354,7 +1354,7 @@ Se puede encontrar el ejemplo completo de publicación de Websockets mediante SB
 
 ### ¿Qué es Spring Boot?
 
-**[Ir a la descripción](#Introduccion)**
+**[Ir a la descripción](#introducci%C3%B3n)**
 
 ### ¿Qué ventajas aporta Spring Boot?
 
